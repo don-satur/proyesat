@@ -4,7 +4,7 @@ from pathlib import Path
 
 Path("salidas").mkdir(exist_ok=True)
 
-def graficar_lanzamientos(lanzamientos):
+def graficar_lanzamientos(lanzamientos, guardar=True):
     anios = list(lanzamientos.keys())
     cantidades = list(lanzamientos.values())
 
