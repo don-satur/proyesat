@@ -7,7 +7,7 @@ class Satelite:
         self.longitud = longitud
         self.altitud_km = altitud_km
 
-    def orbita(self):
+    def tipo_orbita(self):
         if self.altitud_km < 2000:
             return "LEO"
         elif self.altitud_km < 34000:
@@ -26,7 +26,7 @@ class Satelite:
             return False
 
     def __str__(self):
-        return f"{self.nombre} | {self.orbita()} | {self.altitud_km} km"
+        return f"{self.nombre} | {self.orbita()} | {self.altitud_km:.1f} km"
 
 
 def crear_satelites(registros, momento):
