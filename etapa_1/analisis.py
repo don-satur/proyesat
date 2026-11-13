@@ -65,7 +65,7 @@ def contar_por_tipo(satelites):
     }
 
     for satelite in satelites:
-        tipo = satelite.orbita()
+        tipo = satelite.tipo_orbita()
         cantidades[tipo] += 1
 
     return cantidades    
