@@ -94,3 +94,27 @@ def graficar_altitudes_log(satelites, guardar=True):
     if guardar:
         plt.savefig("salidas/histograma_altitudes_log.png", dpi=300)
     plt.show()
+
+def graficar_inclinaciones(registros, guardar=True):
+    inclinaciones = []
+    for reg in registros:
+        inc = reg.get("INCLINATION")
+        if inc is not None:
+            try:
+                inclinaciones.append(float(inc))
+            except (ValueError, TypeError):
+                continue
+                
+    bins = np.arange(0, 181, 1)
+    
+    plt.figure(figsize=(10, 5))
+    plt.hist(inclinaciones, bins=bins, color='crimson', edgecolor='black', linewidth=0.2)
+    plt.xlabel("Inclinación (grados)")
+    plt.ylabel("Frecuencia")
+    plt.title("Distribución de inclinaciones orbitales (0° - 180°)")
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    
+    if guardar:
+        plt.savefig("salidas/histograma_inclinaciones.png", dpi=300)
+    plt.show()
