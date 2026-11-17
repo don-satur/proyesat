@@ -125,24 +125,24 @@ def graficar_inclinaciones(registros, guardar=True):
 ### Bloque adicional para la presentación
 from catalogo import anio_lanzamiento, grupo
 
-def graficar_evolución_constelaciones(registros, grupos_intereses=None, anio_inicio=2015, anio_fin=2026, guardar=True):
+def graficar_evolucion_constelaciones(registros, grupos_intereses=None, anio_inicio=2015, anio_fin=2026, guardar=True):
     if grupos_intereses is None:
         grupos_intereses = ["Starlink", "OneWeb", "Planet", "Iridium", "GPS"]
 
     anios = list(range(anio_inicio, anio_fin + 1))
-    conteos = {g: {a : 0 for a in anios} for g in grupos instereses}
+    conteos = {g: {a : 0 for a in anios} for g in grupos_intereses}
 
     for reg in registros:
         g = grupo(reg["OBJECT_NAME"])
         if g in conteos:
             a = anio_lanzamiento(reg)
             if anio_inicio <= a <= anio_fin:
-                conteo[g][a] += 1
+                conteos[g][a] += 1
 
     plt.figure(figsize=(12,6))
-    for g in grupos_interes:
+    for g in grupos_intereses:
         valores = [conteos[g][a] for a in anios]
-        plt.plot(anios, valores, marker="o", linewith=2, label=g)
+        plt.plot(anios, valores, marker="o", linewidth=2, label=g)
 
     plt.title(f"Evolución de lanzamientos por constelación ({anio_inicio}–{anio_fin})")
     plt.xlabel("Año de lanzamiento")
