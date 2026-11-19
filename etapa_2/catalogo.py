@@ -25,8 +25,8 @@ def leer_satelites(ruta):
         return []
 
 def anio_lanzamiento(registro):
+    obj_id = registro.get("OBJECT_ID", "")
     try:
-        obj_id = registro.get("OBJECT_ID", "")
         return int(obj_id[:4])
     except (ValueError, TypeError):
         return None

@@ -50,7 +50,7 @@ def graficar_altitud_media(resumen, guardar=True):
     plt.xlabel("Grupo")
     plt.ylabel("Altitud media (km)")
     plt.title("Altitud media por grupo de satélites")
-    plt.xticks(rotation=45)
+    plt.xticks(rtation=45)
     plt.grid(axis='y', linestyle='--', alpha=0.7)
     plt.tight_layout()
     
@@ -121,4 +121,7 @@ def graficar_inclinaciones(registros, guardar=True):
 
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
